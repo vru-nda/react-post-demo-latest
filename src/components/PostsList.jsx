@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {useLoaderData} from 'react-router-dom';
+import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 import Post from './Post';
 
@@ -12,8 +12,13 @@ const PostsList = () => {
     <>
       {posts?.length > 0 && (
         <ul className={classes.posts}>
-          {posts.map((post, index) => (
-            <Post key={index} author={post.author} body={post.body} />
+          {posts.map((post) => (
+            <Post
+              key={post.id}
+              author={post.author}
+              body={post.body}
+              id={post.id}
+            />
           ))}
         </ul>
       )}
